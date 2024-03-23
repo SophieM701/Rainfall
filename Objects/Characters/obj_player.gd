@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Constants
-const SPEED = 60
+const SPEED = 70
 const JUMP_VELOCITY = -160
 const COYOTE_DEF = 6
 
@@ -33,7 +33,17 @@ func _physics_process(delta):
 
 	# Get input direction 
 	var direction = Input.get_axis("Left", "Right")
-	velocity.x = direction * SPEED
+	
+	# If there is input and player is below move speed, add portion of move speed
+	if( abs(velocity.x + direction * SPEED * 0.4) < abs(SPEED) ):
+		velocity.x += direction * SPEED * 0.4
+	
+	# Friction on ground
+	if ( self.is_on_floor && (direction == 0) ):
+		velocity.x -= direction * SPEED * 0.4 
+	
+	
+	
 	if(direction < 0):
 		$Sprite.flip_h = true
 		flip = true

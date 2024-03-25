@@ -30,7 +30,10 @@ var has_jumped = false
 
 # Walk flag
 var walking = false
+var walk_counter = 0
 
+# Health
+var hp = 3
 
 # Handle movement, including player input
 func _physics_process(delta):
@@ -49,7 +52,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		
 		#Sound
-		$"Sounds/Jump1".stop()
+		#$"Sounds/Jump1".stop()
 		$"Sounds/Jump1".play()
 		# Stretch
 		stretch_y = 1.4
@@ -103,10 +106,12 @@ func _physics_process(delta):
 	# Landing
 	if( coyote > 0 && !floor_impact):
 		if( !has_landed ):
+			$"Sounds/Wind".stop()
 			tut_jump.show()
 			tut_move.show()
 		has_landed = true
 		floor_impact = true
+		$"Sounds/Sploosh".play()
 		stretch_x = 1.3
 		stretch_y = 0.7
 	
@@ -131,6 +136,25 @@ func _physics_process(delta):
 			walking = true
 	else:
 		walking = false
+		
+	if(walking):
+		
+		if(walk_counter == 0):
+			$"Sounds/Step1".play()
+			
+		walk_counter += 1
+		if(walk_counter == 4*6):
+			$"Sounds/Step2".play()
+		if(walk_counter == 8*6):
+			$"Sounds/Step3".play()
+		if(walk_counter == 12*6):
+			$"Sounds/Step4".play()
+		if(walk_counter == 16*6):
+			$"Sounds/Step5".play()
+			walk_counter = 0
+			
+	else:
+		walk_counter = 0
 		
 	# Crouch animation
 	if( crouch == 1 ):

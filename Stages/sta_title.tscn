@@ -17,25 +17,11 @@
 [ext_resource type="Script" path="res://Stages/DarkLeft.gd" id="11_tk4nm"]
 [ext_resource type="FontFile" uid="uid://cioc26ifxaesr" path="res://Assets/Fonts/yummy nickels.ttf" id="11_xowuy"]
 [ext_resource type="Script" path="res://Stages/DarkRight.gd" id="13_nru5f"]
+[ext_resource type="AudioStream" uid="uid://du2jg6oywmncl" path="res://Assets/Audio/Music/Final/Rainfall_Title_Master (1).mp3" id="17_54mv0"]
 [ext_resource type="Script" path="res://Stages/Prompt.gd" id="17_mnp8c"]
 [ext_resource type="AudioStream" uid="uid://q5ewqdyljy17" path="res://Assets/Audio/Music/Final/mus_stinger.mp3" id="18_o6q05"]
-[ext_resource type="AudioStream" uid="uid://btj3e7sef1s2d" path="res://Assets/Audio/Music/Final/mus_title.mp3" id="19_6qrjf"]
-[ext_resource type="AudioStream" path="res://Assets/Audio/Music/Final/sou_rain_3.WAV" id="20_jofv3"]
+[ext_resource type="AudioStream" uid="uid://4epsjy41gx8w" path="res://Assets/Audio/SFX/rain.mp3" id="18_uytrs"]
 [ext_resource type="AudioStream" uid="uid://bcihmr3iff5av" path="res://Assets/Audio/Music/Final/mus_menu_2.mp3" id="22_wbmj7"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x3i6"]
-emission_shape = 3
-emission_box_extents = Vector3(200, 1, 1)
-particle_flag_disable_z = true
-direction = Vector3(-0.27, 1, 0)
-spread = 0.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 340.0
-initial_velocity_max = 340.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-angle_min = -16.0
-angle_max = -16.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xm3r"]
 line_spacing = 0.0
@@ -59,18 +45,22 @@ texture_region_size = Vector2i(8, 32)
 tile_size = Vector2i(8, 32)
 sources/0 = SubResource("TileSetAtlasSource_n5vr3")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x3i6"]
+emission_shape = 3
+emission_box_extents = Vector3(200, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(-0.27, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 340.0
+initial_velocity_max = 340.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_min = -16.0
+angle_max = -16.0
+
 [node name="sta_test" type="Node2D"]
 position = Vector2(-80, 0)
-
-[node name="RainEmitter" type="GPUParticles2D" parent="."]
-z_index = -2
-texture_filter = 1
-position = Vector2(256, -8)
-amount = 48
-process_material = SubResource("ParticleProcessMaterial_8x3i6")
-texture = ExtResource("1_mcrij")
-lifetime = 2.0
-script = ExtResource("2_hdw1c")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -159,11 +149,11 @@ script = ExtResource("17_mnp8c")
 stream = ExtResource("18_o6q05")
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="UI/Prompt"]
-stream = ExtResource("19_6qrjf")
+stream = ExtResource("17_54mv0")
 volume_db = -8.148
 
-[node name="Rain" type="AudioStreamPlayer2D" parent="UI/Prompt"]
-stream = ExtResource("20_jofv3")
+[node name="RainSounds" type="AudioStreamPlayer" parent="UI/Prompt"]
+stream = ExtResource("18_uytrs")
 autoplay = true
 
 [node name="MenuJingle" type="AudioStreamPlayer" parent="UI/Prompt"]
@@ -179,3 +169,13 @@ tile_set = SubResource("TileSet_134jr")
 cell_quadrant_size = 8
 format = 2
 layer_0/tile_data = PackedInt32Array(5, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 327685, 0, 0, 34, 65536, 0, 65570, 65536, 0, 131106, 65536, 0, 196642, 65536, 0, 262178, 65536, 0, 327714, 65536, 0)
+
+[node name="RainEmitter" type="GPUParticles2D" parent="UI"]
+z_index = -2
+texture_filter = 1
+position = Vector2(176, -8)
+amount = 48
+process_material = SubResource("ParticleProcessMaterial_8x3i6")
+texture = ExtResource("1_mcrij")
+lifetime = 2.0
+script = ExtResource("2_hdw1c")

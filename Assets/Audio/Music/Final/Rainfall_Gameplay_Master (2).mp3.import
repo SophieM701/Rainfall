@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3tctej4hwnsk"
+path="res://.godot/imported/Rainfall_Gameplay_Master (2).mp3-e6e519708bf62f19991cb7558e1e0f87.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/Final/Rainfall_Gameplay_Master (2).mp3"
+dest_files=["res://.godot/imported/Rainfall_Gameplay_Master (2).mp3-e6e519708bf62f19991cb7558e1e0f87.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

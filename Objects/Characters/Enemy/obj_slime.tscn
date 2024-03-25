@@ -48,10 +48,10 @@ animations = [{
 size = Vector2(12, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiqvq"]
-size = Vector2(14, 4)
+size = Vector2(16, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccj6p"]
-size = Vector2(16, 5)
+size = Vector2(10.5, 5)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sisxg"]
 emission_shape = 1
@@ -87,7 +87,7 @@ shape = SubResource("RectangleShape2D_tiqvq")
 script = ExtResource("4_07aaj")
 
 [node name="Hurt" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, -6.5)
+position = Vector2(0.25, -7)
 shape = SubResource("RectangleShape2D_ccj6p")
 
 [node name="Sounds" type="Node2D" parent="."]

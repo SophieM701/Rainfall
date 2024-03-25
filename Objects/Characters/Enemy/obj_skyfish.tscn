@@ -252,10 +252,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiqvq"]
-size = Vector2(12, 4)
+size = Vector2(9, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccj6p"]
-size = Vector2(16, 5)
+size = Vector2(14, 5)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sisxg"]
 emission_shape = 1
@@ -279,21 +279,21 @@ texture_filter = 1
 position = Vector2(0, 17)
 sprite_frames = SubResource("SpriteFrames_vmlxv")
 animation = &"ground"
-frame_progress = 0.816937
+frame_progress = 0.390527
 offset = Vector2(0, -8)
 
 [node name="Hitbox" type="Area2D" parent="."]
 script = ExtResource("3_330i5")
 
 [node name="Hit" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, -2)
+position = Vector2(0.5, 4)
 shape = SubResource("RectangleShape2D_tiqvq")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("4_vnudq")
 
 [node name="Hurt" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, -6.5)
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_ccj6p")
 
 [node name="Sounds" type="Node2D" parent="."]

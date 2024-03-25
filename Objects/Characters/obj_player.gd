@@ -60,10 +60,10 @@ func _physics_process(delta):
 
 	if( abs(velocity.x) > 10 ):
 		has_moved = true
-		tut_move.hide()
+		#tut_move.hide()
 	if( velocity.y < -10 ):
 		has_jumped = true
-		tut_jump.hide()
+		#tut_jump.hide()
 	
 	
 	# Terminal velocity matches the rain!

@@ -48,10 +48,10 @@ animations = [{
 size = Vector2(12, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tiqvq"]
-size = Vector2(18, 4)
+size = Vector2(14, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccj6p"]
-size = Vector2(14, 5)
+size = Vector2(16, 5)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sisxg"]
 emission_shape = 1

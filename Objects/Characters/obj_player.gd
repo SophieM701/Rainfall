@@ -207,7 +207,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func jump():
-	velocity.y = JUMP_VELOCITY * 1.4
+	velocity.y = JUMP_VELOCITY * 1.2
 	#Sound
 	#$"Sounds/Jump1".stop()
 	$"Sounds/Jump1".play()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://b3cnppkg1w6wo"]
+[gd_scene load_steps=39 format=3 uid="uid://b3cnppkg1w6wo"]
 
 [ext_resource type="Script" path="res://Objects/Characters/obj_player.gd" id="1_gm44q"]
 [ext_resource type="Texture2D" uid="uid://cogdh6fjidfhk" path="res://Assets/Sprites/Player/spr_player.png" id="2_8mov4"]
 [ext_resource type="Script" path="res://Objects/Characters/ScarfA.gd" id="3_iphhj"]
 [ext_resource type="Script" path="res://Objects/Characters/ScarfB.gd" id="3_tojue"]
 [ext_resource type="Script" path="res://Objects/Characters/ScarfC.gd" id="4_xwaym"]
+[ext_resource type="AudioStream" uid="uid://saxcceo6562l" path="res://Assets/Audio/SFX/Jump_3.mp3" id="6_02tt7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6h70"]
 atlas = ExtResource("2_8mov4")
@@ -299,3 +300,7 @@ limit_right = 160
 position_smoothing_enabled = true
 position_smoothing_speed = 16.0
 drag_vertical_enabled = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_02tt7")
+volume_db = -4.0

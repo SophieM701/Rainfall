@@ -21,6 +21,13 @@ var stretch_x = 1.0
 
 var crouch = 0
 
+# Tutorial Flags
+var has_landed = false
+var has_moved = false
+var has_jumped = false
+@onready var tut_move = $"../ArrowKeys"
+@onready var tut_jump = $"../Jump"
+
 
 # Handle movement, including player input
 func _physics_process(delta):
@@ -37,6 +44,10 @@ func _physics_process(delta):
 	# Handle jump
 	if Input.is_action_just_pressed("Jump") and (coyote > 0):
 		velocity.y = JUMP_VELOCITY
+		
+		#Sound
+		$Jump.stop()
+		$Jump.play()
 		# Stretch
 		stretch_y = 1.4
 		stretch_x = 0.8
@@ -45,6 +56,14 @@ func _physics_process(delta):
 	# Get input direction 
 	var direction = Input.get_axis("Left", "Right")
 	velocity.x = direction * SPEED
+	
+
+	if( abs(velocity.x) > 10 ):
+		has_moved = true
+		tut_move.hide()
+	if( velocity.y < -10 ):
+		has_jumped = true
+		tut_jump.hide()
 	
 	
 	# Terminal velocity matches the rain!
@@ -80,6 +99,10 @@ func _physics_process(delta):
 		
 	# Landing
 	if( coyote > 0 && !floor_impact):
+		if( !has_landed ):
+			tut_jump.show()
+			tut_move.show()
+		has_landed = true
 		floor_impact = true
 		stretch_x = 1.3
 		stretch_y = 0.7

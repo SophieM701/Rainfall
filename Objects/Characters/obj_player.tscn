@@ -308,7 +308,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c57y"]
 size = Vector2(6, 15)
 
-[node name="obj_player" type="CharacterBody2D"]
+[node name="obj_player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_gm44q")
 
 [node name="Scarf" type="Node" parent="."]
@@ -381,7 +381,7 @@ volume_db = -10.0
 
 [node name="Hurt" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("14_hhj40")
-volume_db = -8.0
+volume_db = 6.0
 
 [node name="Sploosh" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("15_yy42d")

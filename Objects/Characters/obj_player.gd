@@ -32,8 +32,17 @@ var has_jumped = false
 var walking = false
 var walk_counter = 0
 
+# Hurting Flag
+var just_hurt = false
+var hurting = false
+var pushed = 0
+var hurt_count = 0
+
 # Health
 var hp = 3
+
+# Squashed
+var squashed = 0
 
 # Handle movement, including player input
 func _physics_process(delta):
@@ -46,6 +55,22 @@ func _physics_process(delta):
 		coyote -= 1
 	else:
 		coyote = COYOTE_DEF
+		
+	
+	# Handle Hurt
+	if hurting:
+		hurt_count += 1
+		if( hurt_count % 8 <= 4):
+			$Sprite.hide()
+		else:
+			$Sprite.show()
+		
+		if( hurt_count >= 30 ):
+			hurting = false
+			hurt_count = 0
+		
+
+		
 
 	# Handle jump
 	if Input.is_action_just_pressed("Jump") and (coyote > 0):
@@ -180,3 +205,37 @@ func _physics_process(delta):
 
 
 	move_and_slide()
+
+func jump():
+	velocity.y = JUMP_VELOCITY * 1.4
+	#Sound
+	#$"Sounds/Jump1".stop()
+	$"Sounds/Jump1".play()
+	# Stretch
+	stretch_y = 1.4
+	stretch_x = 0.8
+	
+	squashed += 1
+	
+
+func hurt(push_dir):
+	
+	# Remove HP
+	hp -= 1
+	
+	# Update Health Display
+	if( hp <= 2):
+		$"../../UI/Health/Heart3".hide()
+	if( hp <= 1):
+		$"../../UI/Health/Heart2".hide()
+	if( hp <= 0):
+		$"../../UI/Health/Heart1".hide()
+		
+
+	# Play Hurt Sound
+	$"Sounds/Hurt".play()
+	
+	# Enter Hurting State
+	pushed = push_dir
+	hurting = true
+	just_hurt = true

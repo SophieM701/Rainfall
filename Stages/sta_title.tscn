@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://Stages/Prompt.gd" id="17_mnp8c"]
 [ext_resource type="AudioStream" uid="uid://q5ewqdyljy17" path="res://Assets/Audio/Music/Final/mus_stinger.mp3" id="18_o6q05"]
 [ext_resource type="AudioStream" uid="uid://btj3e7sef1s2d" path="res://Assets/Audio/Music/Final/mus_title.mp3" id="19_6qrjf"]
-[ext_resource type="AudioStream" uid="uid://caobqkgq8vdhi" path="res://Assets/Audio/Music/Final/sou_rain_3.WAV" id="20_jofv3"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/Music/Final/sou_rain_3.WAV" id="20_jofv3"]
 [ext_resource type="AudioStream" uid="uid://bcihmr3iff5av" path="res://Assets/Audio/Music/Final/mus_menu_2.mp3" id="22_wbmj7"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x3i6"]

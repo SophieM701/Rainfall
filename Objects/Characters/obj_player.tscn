@@ -1,11 +1,11 @@
-[gd_scene load_steps=39 format=3 uid="uid://b3cnppkg1w6wo"]
+[gd_scene load_steps=43 format=3 uid="uid://b3cnppkg1w6wo"]
 
 [ext_resource type="Script" path="res://Objects/Characters/obj_player.gd" id="1_gm44q"]
 [ext_resource type="Texture2D" uid="uid://cogdh6fjidfhk" path="res://Assets/Sprites/Player/spr_player.png" id="2_8mov4"]
 [ext_resource type="Script" path="res://Objects/Characters/ScarfA.gd" id="3_iphhj"]
 [ext_resource type="Script" path="res://Objects/Characters/ScarfB.gd" id="3_tojue"]
 [ext_resource type="Script" path="res://Objects/Characters/ScarfC.gd" id="4_xwaym"]
-[ext_resource type="AudioStream" uid="uid://saxcceo6562l" path="res://Assets/Audio/SFX/Jump_3.mp3" id="6_02tt7"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/SFX/Jump_3.mp3" id="6_02tt7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d6h70"]
 atlas = ExtResource("2_8mov4")
@@ -126,6 +126,22 @@ region = Rect2(280, 0, 20, 20)
 [sub_resource type="AtlasTexture" id="AtlasTexture_afnd3"]
 atlas = ExtResource("2_8mov4")
 region = Rect2(300, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to81k"]
+atlas = ExtResource("2_8mov4")
+region = Rect2(660, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1i2v"]
+atlas = ExtResource("2_8mov4")
+region = Rect2(680, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ak1t"]
+atlas = ExtResource("2_8mov4")
+region = Rect2(700, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk53t"]
+atlas = ExtResource("2_8mov4")
+region = Rect2(720, 0, 20, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cqngy"]
 animations = [{
@@ -260,6 +276,23 @@ animations = [{
 "loop": true,
 "name": &"spin",
 "speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to81k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1i2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ak1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk53t")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c57y"]
@@ -286,7 +319,8 @@ script = ExtResource("4_xwaym")
 texture_filter = 1
 position = Vector2(0, 10)
 sprite_frames = SubResource("SpriteFrames_cqngy")
-animation = &"crouchB"
+animation = &"walk"
+frame_progress = 0.662297
 offset = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -301,6 +335,44 @@ position_smoothing_enabled = true
 position_smoothing_speed = 16.0
 drag_vertical_enabled = true
 
-[node name="Jump" type="AudioStreamPlayer" parent="."]
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Jump1" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_02tt7")
+volume_db = -4.0
+
+[node name="Jump2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_02tt7")
+volume_db = -4.0
+
+[node name="Jump3" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_02tt7")
+volume_db = -4.0
+
+[node name="Step1" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_02tt7")
+volume_db = -4.0
+
+[node name="Step2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_02tt7")
+volume_db = -4.0
+
+[node name="Step3" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_02tt7")
+volume_db = -4.0
+
+[node name="Step4" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_02tt7")
+volume_db = -4.0
+
+[node name="Step5" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_02tt7")
+volume_db = -4.0
+
+[node name="Hurt" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_02tt7")
+volume_db = -4.0
+
+[node name="Sploosh" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("6_02tt7")
 volume_db = -4.0

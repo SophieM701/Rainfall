@@ -28,6 +28,9 @@ var has_jumped = false
 @onready var tut_move = $"../ArrowKeys"
 @onready var tut_jump = $"../Jump"
 
+# Walk flag
+var walking = false
+
 
 # Handle movement, including player input
 func _physics_process(delta):
@@ -46,8 +49,8 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		
 		#Sound
-		$Jump.stop()
-		$Jump.play()
+		$"Sounds/Jump1".stop()
+		$"Sounds/Jump1".play()
 		# Stretch
 		stretch_y = 1.4
 		stretch_x = 0.8
@@ -118,8 +121,16 @@ func _physics_process(delta):
 		
 		
 	# Idle animation
-	if( is_on_floor() ):
+	if( is_on_floor() && abs(velocity.x)== 0):
 		$Sprite.play("idle")
+		
+	# Walk
+	if( is_on_floor() && abs(velocity.x) > 0 ):
+		if(!walking):
+			$Sprite.play("walk")
+			walking = true
+	else:
+		walking = false
 		
 	# Crouch animation
 	if( crouch == 1 ):

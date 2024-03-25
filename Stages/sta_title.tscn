@@ -1,12 +1,27 @@
-[gd_scene load_steps=15 format=3 uid="uid://bariojlcuri4v"]
+[gd_scene load_steps=28 format=3 uid="uid://bariojlcuri4v"]
 
 [ext_resource type="Texture2D" uid="uid://bgsk3estumswr" path="res://Assets/Sprites/Particles/spr_rain.png" id="1_mcrij"]
 [ext_resource type="Script" path="res://Stages/RainEmitter.gd" id="2_hdw1c"]
-[ext_resource type="PackedScene" uid="uid://b3cnppkg1w6wo" path="res://Objects/Characters/obj_player.tscn" id="3_xhbig"]
-[ext_resource type="Texture2D" uid="uid://ttqdk0w20vf3" path="res://Assets/Palettes/oil-6-8x.png" id="4_redfx"]
-[ext_resource type="Texture2D" uid="uid://cxissd0x572tb" path="res://Assets/Tilesets/Solids/spr_ibeam.png" id="5_7tq48"]
+[ext_resource type="Texture2D" uid="uid://cqu50x1b3btfc" path="res://Assets/Sprites/Background/Menu/dar_cloud_1.png" id="3_0rxm2"]
+[ext_resource type="Texture2D" uid="uid://cypr1h3binwrk" path="res://Assets/Sprites/Background/Menu/dither.png" id="3_ilw36"]
+[ext_resource type="Texture2D" uid="uid://br665f3uqxtex" path="res://Assets/Sprites/Background/Menu/pur_cloud_1.png" id="3_kpy2s"]
+[ext_resource type="Texture2D" uid="uid://cggdvtmjdxvmb" path="res://Assets/Sprites/Background/Menu/pur_cloud_3.png" id="3_v2kdo"]
+[ext_resource type="Texture2D" uid="uid://d3tg6duxxsfqk" path="res://Assets/Sprites/Background/Menu/pur_cloud_2.png" id="4_k2bnb"]
+[ext_resource type="Texture2D" uid="uid://gukdy6ko37b7" path="res://Assets/Sprites/Background/spr_sunset.png" id="4_kfbh5"]
+[ext_resource type="Script" path="res://Stages/PurpleDrifter.gd" id="5_p7gfb"]
+[ext_resource type="Texture2D" uid="uid://4gt14hcts2os" path="res://Assets/Sprites/Background/Menu/dar_cloud_2.png" id="6_huu7j"]
 [ext_resource type="Texture2D" uid="uid://cu06m33vasfgo" path="res://Assets/Sprites/UI/VineBorderBlue.png" id="7_hxruo"]
-[ext_resource type="FontFile" uid="uid://cioc26ifxaesr" path="res://Assets/Fonts/yummy nickels.ttf" id="9_keig4"]
+[ext_resource type="Script" path="res://Stages/PurpleLeft.gd" id="7_mxq31"]
+[ext_resource type="Script" path="res://Stages/PurpleRight.gd" id="9_2i3x6"]
+[ext_resource type="Texture2D" uid="uid://ck28fmotemno1" path="res://Assets/Sprites/Background/Menu/title_temp.png" id="9_d7p5i"]
+[ext_resource type="Script" path="res://Stages/DarkLeft.gd" id="11_tk4nm"]
+[ext_resource type="FontFile" uid="uid://cioc26ifxaesr" path="res://Assets/Fonts/yummy nickels.ttf" id="11_xowuy"]
+[ext_resource type="Script" path="res://Stages/DarkRight.gd" id="13_nru5f"]
+[ext_resource type="Script" path="res://Stages/Prompt.gd" id="17_mnp8c"]
+[ext_resource type="AudioStream" uid="uid://q5ewqdyljy17" path="res://Assets/Audio/Music/Final/mus_stinger.mp3" id="18_o6q05"]
+[ext_resource type="AudioStream" uid="uid://btj3e7sef1s2d" path="res://Assets/Audio/Music/Final/mus_title.mp3" id="19_6qrjf"]
+[ext_resource type="AudioStream" uid="uid://caobqkgq8vdhi" path="res://Assets/Audio/Music/Final/sou_rain_3.WAV" id="20_jofv3"]
+[ext_resource type="AudioStream" uid="uid://bcihmr3iff5av" path="res://Assets/Audio/Music/Final/mus_menu_2.mp3" id="22_wbmj7"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x3i6"]
 emission_shape = 3
@@ -22,63 +37,17 @@ orbit_velocity_max = 0.0
 angle_min = -16.0
 angle_max = -16.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nk2n2"]
-texture = ExtResource("4_redfx")
-texture_region_size = Vector2i(8, 8)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-4:0/0 = 0
-4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:0/0/physics_layer_0/angular_velocity = 0.0
-5:0/0 = 0
-5:0/0/terrain_set = 0
-5:0/0/terrain = 0
-5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:0/0/physics_layer_0/angular_velocity = 0.0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+[sub_resource type="LabelSettings" id="LabelSettings_2xm3r"]
+line_spacing = 0.0
+font = ExtResource("11_xowuy")
+font_size = 10
+font_color = Color(0.984314, 0.960784, 0.937255, 1)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xtw7b"]
-texture = ExtResource("5_7tq48")
-texture_region_size = Vector2i(8, 8)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-0:0/0/terrains_peering_bit/right_side = 0
-0:0/0/terrains_peering_bit/left_side = 0
-1:0/0 = 0
-1:0/0/terrain_set = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-1:0/0/terrains_peering_bit/right_side = 0
-2:0/0 = 0
-2:0/0/terrain_set = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
-2:0/0/terrains_peering_bit/left_side = 0
-
-[sub_resource type="TileSet" id="TileSet_eswhb"]
-tile_size = Vector2i(8, 8)
-physics_layer_0/collision_layer = 1
-terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "Terrain 0"
-terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/2 = SubResource("TileSetAtlasSource_xtw7b")
-sources/0 = SubResource("TileSetAtlasSource_nk2n2")
+[sub_resource type="LabelSettings" id="LabelSettings_u33lw"]
+line_spacing = 0.0
+font = ExtResource("11_xowuy")
+font_size = 10
+font_color = Color(0.152941, 0.152941, 0.266667, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n5vr3"]
 texture = ExtResource("7_hxruo")
@@ -90,40 +59,59 @@ texture_region_size = Vector2i(8, 32)
 tile_size = Vector2i(8, 32)
 sources/0 = SubResource("TileSetAtlasSource_n5vr3")
 
-[sub_resource type="LabelSettings" id="LabelSettings_xpn1k"]
-line_spacing = 0.0
-font = ExtResource("9_keig4")
-font_size = 20
-font_color = Color(0.94902, 0.827451, 0.670588, 1)
-
 [node name="sta_test" type="Node2D"]
 position = Vector2(-80, 0)
 
 [node name="RainEmitter" type="GPUParticles2D" parent="."]
-visible = false
 z_index = -2
 texture_filter = 1
-position = Vector2(80, 0)
+position = Vector2(256, -8)
 amount = 48
 process_material = SubResource("ParticleProcessMaterial_8x3i6")
 texture = ExtResource("1_mcrij")
 lifetime = 2.0
 script = ExtResource("2_hdw1c")
 
-[node name="Stage" type="Node2D" parent="."]
-position = Vector2(-40, 0)
-
-[node name="obj_player" parent="Stage" instance=ExtResource("3_xhbig")]
-texture_filter = 1
-position = Vector2(120, 56)
-
-[node name="Collision" type="TileMap" parent="Stage"]
-texture_filter = 1
-tile_set = SubResource("TileSet_eswhb")
-format = 2
-layer_0/tile_data = PackedInt32Array(65535, 327680, 0, 131071, 327680, 0, 196607, 327680, 0, 262143, 327680, 0, 327679, 327680, 0, 393215, 327680, 0, 458751, 327680, 0, 524287, 327680, 0, 589823, 327680, 0, 655359, 327680, 0, 720895, 327680, 0, 786431, 327680, 0, 851967, 327680, 0, 917503, 327680, 0, 983039, 327680, 0, 1048575, 327680, 0, 1114111, 327680, 0, 1179647, 327680, 0, 1245183, 327680, 0, 1310719, 327680, 0, 1376255, 327680, 0, 1441791, 327680, 0, 1507327, 327680, 0, 1572863, 327680, 0, 1638399, 327680, 0, 1703935, 327680, 0, 1769471, 327680, 0, 1835007, 327680, 0, 1900543, 327680, 0, 1966079, 327680, 0, 2031615, 327680, 0, 2097151, 327680, 0, 2162687, 327680, 0, 2228223, 327680, 0, 2293759, 327680, 0, 2359295, 327680, 0, 2424831, 327680, 0, 2490367, 327680, 0, 2555903, 327680, 0, 2621439, 327680, 0, 2686975, 327680, 0, 2752511, 327680, 0, 2818047, 327680, 0, 2883583, 327680, 0, 2949119, 327680, 0, 3014655, 327680, 0, 3080191, 327680, 0, 3145727, 327680, 0, 3211263, 327680, 0, 3276799, 327680, 0, 3342335, 327680, 0, 3407871, 327680, 0, 3473407, 327680, 0, 3538943, 327680, 0, 3604479, 327680, 0, 3670015, 327680, 0, 3735551, 327680, 0, 3801087, 327680, 0, 3866623, 327680, 0, 3932159, 327680, 0, 3997695, 327680, 0, 4063231, 327680, 0, 4128767, 327680, 0, 4194303, 327680, 0, 4259839, 327680, 0, 30, 327680, 0, 65566, 327680, 0, 131102, 327680, 0, 196638, 327680, 0, 262174, 327680, 0, 327710, 327680, 0, 393246, 327680, 0, 458782, 327680, 0, 524318, 327680, 0, 589854, 327680, 0, 655390, 327680, 0, 720926, 327680, 0, 786462, 327680, 0, 851998, 327680, 0, 917534, 327680, 0, 983070, 327680, 0, 1048606, 327680, 0, 1114142, 327680, 0, 1179678, 327680, 0, 1245214, 327680, 0, 1310750, 327680, 0, 1376286, 327680, 0, 1441822, 327680, 0, 1507358, 327680, 0, 1572894, 327680, 0, 1638430, 327680, 0, 1703966, 327680, 0, 1769502, 327680, 0, 1835038, 327680, 0, 1900574, 327680, 0, 1966110, 327680, 0, 2031646, 327680, 0, 2097182, 327680, 0, 2162718, 327680, 0, 2228254, 327680, 0, 2293790, 327680, 0, 2359326, 327680, 0, 2424862, 327680, 0, 2490398, 327680, 0, 2555934, 327680, 0, 2621470, 327680, 0, 2687006, 327680, 0, 2752542, 327680, 0, 2818078, 327680, 0, 2883614, 327680, 0, 2949150, 327680, 0, 3014686, 327680, 0, 3080222, 327680, 0, 3145758, 327680, 0, 3211294, 327680, 0, 3276830, 327680, 0, 3342366, 327680, 0, 3407902, 327680, 0, 3473438, 327680, 0, 3538974, 327680, 0, 3604510, 327680, 0, 3670046, 327680, 0, 3735582, 327680, 0, 3801118, 327680, 0, 3866654, 327680, 0, 3932190, 327680, 0, 3997726, 327680, 0, 4063262, 327680, 0, 4128798, 327680, 0, 4194334, 327680, 0, 1048601, 131074, 0, 1048600, 2, 0, 1048599, 2, 0, 1048598, 2, 0, 1048580, 65538, 0, 1048581, 2, 0, 1048582, 2, 0, 1048583, 2, 0, 1048584, 131074, 0, 1048597, 65538, 0, 524299, 65538, 0, 524300, 2, 0, 524301, 2, 0, 524302, 2, 0, 524303, 2, 0, 524304, 2, 0, 524305, 2, 0, 524306, 131074, 0, 4194304, 327680, 0, 4194305, 327680, 0, 4194306, 327680, 0, 4194307, 327680, 0, 4194308, 327680, 0, 4194309, 327680, 0, 4194310, 327680, 0, 4194311, 327680, 0, 4194312, 327680, 0, 4194313, 327680, 0, 4194314, 327680, 0, 4194315, 327680, 0, 4194316, 327680, 0, 4194317, 327680, 0, 4194318, 327680, 0, 4194319, 327680, 0, 4194320, 327680, 0, 4194321, 327680, 0, 4194322, 327680, 0, 4194323, 327680, 0, 4194324, 327680, 0, 4194325, 327680, 0, 4194326, 327680, 0, 4194328, 327680, 0, 4194329, 327680, 0, 4194330, 327680, 0, 4194331, 327680, 0, 4194332, 327680, 0, 4194333, 327680, 0, 4194327, 327680, 0, 1900546, 2, 0, 1900547, 2, 0, 1900548, 2, 0, 1900549, 2, 0, 1900550, 2, 0, 1900551, 2, 0, 1900552, 2, 0, 1900553, 2, 0, 1900554, 2, 0, 1900555, 2, 0, 1900556, 2, 0, 1900557, 2, 0, 1900558, 2, 0, 1900559, 2, 0, 1900560, 2, 0, 1900561, 2, 0, 1900562, 2, 0, 1900563, 2, 0, 1900564, 2, 0, 1900565, 2, 0, 1900566, 2, 0, 1900567, 2, 0, 1900568, 2, 0, 1900569, 2, 0, 1900570, 2, 0, 1900571, 2, 0, 1900572, 131074, 0, 1900573, 327680, 0, 1900544, 327680, 0, 1900545, 65538, 0, 1703938, 65538, 0, 1703939, 2, 0, 1703940, 2, 0, 1703941, 131074, 0, 1703961, 2, 0, 1703962, 2, 0, 1703963, 131074, 0, 1507349, 2, 0, 1507350, 2, 0, 1507351, 131074, 0, 1507334, 65538, 0, 1507335, 2, 0, 1507336, 2, 0, 1507337, 131074, 0, 1769486, 2, 0, 1769487, 2, 0, 1769488, 131074, 0, 1245198, 2, 0, 1245199, 2, 0, 1245200, 2, 0, 1245201, 131074, 0, 1245197, 2, 0, 1114133, 327682, 0, 1245196, 65538, 0, 1769485, 65538, 0, 1507348, 65538, 0, 1703960, 65538, 0, 0, 327680, 0, 65536, 327680, 0, 131072, 327680, 0, 196608, 327680, 0, 262144, 327680, 0, 327680, 327680, 0, 393216, 327680, 0, 458752, 327680, 0, 524288, 327680, 0, 589824, 327680, 0, 655360, 327680, 0, 720896, 327680, 0, 786432, 327680, 0, 851968, 327680, 0, 917504, 327680, 0, 983040, 327680, 0, 1048576, 327680, 0, 1114112, 327680, 0, 1179648, 327680, 0, 1245184, 327680, 0, 1310720, 327680, 0, 1376256, 327680, 0, 1441792, 327680, 0, 1507328, 327680, 0, 1572864, 327680, 0, 1638400, 327680, 0, 1703936, 327680, 0, 1769472, 327680, 0, 1835008, 327680, 0, 1835037, 327680, 0, 1769501, 327680, 0, 1703965, 327680, 0, 1638429, 327680, 0, 1572893, 327680, 0, 1507357, 327680, 0, 1441821, 327680, 0, 1376285, 327680, 0, 1310749, 327680, 0, 1245213, 327680, 0, 1179677, 327680, 0, 1114141, 327680, 0, 1048605, 327680, 0, 983069, 327680, 0, 917533, 327680, 0, 851997, 327680, 0, 786461, 327680, 0, 720925, 327680, 0, 655389, 327680, 0, 589853, 327680, 0, 524317, 327680, 0, 458781, 327680, 0, 393245, 327680, 0, 327709, 327680, 0, 262173, 327680, 0, 196637, 327680, 0, 131101, 327680, 0, 65565, 327680, 0, 29, 327680, 0)
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(160, 236)
+texture = ExtResource("3_ilw36")
+
+[node name="Sky2" type="Sprite2D" parent="ParallaxBackground"]
+visible = false
+position = Vector2(160, 84)
+texture = ExtResource("4_kfbh5")
+
+[node name="PurpleDrifter" type="Sprite2D" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(28, 112)
+texture = ExtResource("3_kpy2s")
+script = ExtResource("5_p7gfb")
+
+[node name="PurpleLeft" type="Sprite2D" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(116, 20)
+texture = ExtResource("3_v2kdo")
+script = ExtResource("7_mxq31")
+
+[node name="PurpleRight" type="Sprite2D" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(196, 44)
+texture = ExtResource("4_k2bnb")
+script = ExtResource("9_2i3x6")
+
+[node name="DarkLeft" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(184, 48)
+texture = ExtResource("3_0rxm2")
+script = ExtResource("11_tk4nm")
+
+[node name="DarkRight" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(296, 36)
+texture = ExtResource("6_huu7j")
+script = ExtResource("13_nru5f")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -140,22 +128,54 @@ offset_right = 320.0
 offset_bottom = 184.0
 color = Color(0.152941, 0.152941, 0.266667, 1)
 
-[node name="Border" type="TileMap" parent="UI/Letterbox"]
-visible = false
+[node name="Title" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(160, 32)
+texture = ExtResource("9_d7p5i")
+
+[node name="Credits" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 96.0
+offset_top = 156.0
+offset_right = 224.0
+offset_bottom = 167.0
+text = "Grayson Varn
+Sophie Madi"
+label_settings = SubResource("LabelSettings_2xm3r")
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 224.0
+offset_bottom = 107.0
+text = "Press X+C to Begin"
+label_settings = SubResource("LabelSettings_u33lw")
+horizontal_alignment = 1
+script = ExtResource("17_mnp8c")
+
+[node name="Stinger" type="AudioStreamPlayer" parent="UI/Prompt"]
+stream = ExtResource("18_o6q05")
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="UI/Prompt"]
+stream = ExtResource("19_6qrjf")
+volume_db = -8.148
+
+[node name="Rain" type="AudioStreamPlayer2D" parent="UI/Prompt"]
+stream = ExtResource("20_jofv3")
+autoplay = true
+
+[node name="MenuJingle" type="AudioStreamPlayer" parent="UI/Prompt"]
+stream = ExtResource("22_wbmj7")
+
+[node name="Wipe" type="Polygon2D" parent="UI"]
+color = Color(0.152941, 0.152941, 0.266667, 1)
+polygon = PackedVector2Array(32, -32, -192, 192, -936, 192, -936, -32)
+
+[node name="Border" type="TileMap" parent="UI"]
 texture_filter = 1
 tile_set = SubResource("TileSet_134jr")
 cell_quadrant_size = 8
 format = 2
 layer_0/tile_data = PackedInt32Array(5, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 327685, 0, 0, 34, 65536, 0, 65570, 65536, 0, 131106, 65536, 0, 196642, 65536, 0, 262178, 65536, 0, 327714, 65536, 0)
-
-[node name="StyleMeter" type="Node" parent="UI"]
-
-[node name="Label" type="Label" parent="UI/StyleMeter"]
-visible = false
-texture_filter = 1
-offset_left = 288.0
-offset_top = 8.0
-offset_right = 401.0
-offset_bottom = 41.0
-text = "A"
-label_settings = SubResource("LabelSettings_xpn1k")

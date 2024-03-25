@@ -1,14 +1,26 @@
-[gd_scene load_steps=17 format=3 uid="uid://cc5dty65tfntt"]
+[gd_scene load_steps=29 format=3 uid="uid://cc5dty65tfntt"]
 
 [ext_resource type="Script" path="res://Stages/RainEmitter.gd" id="2_5bf31"]
 [ext_resource type="Texture2D" uid="uid://bgsk3estumswr" path="res://Assets/Sprites/Particles/spr_rain.png" id="2_aej3o"]
 [ext_resource type="PackedScene" uid="uid://b3cnppkg1w6wo" path="res://Objects/Characters/obj_player.tscn" id="2_an52r"]
 [ext_resource type="Texture2D" uid="uid://duo7cck1bemhj" path="res://Assets/Sprites/UI/Heart.png" id="3_0ooal"]
+[ext_resource type="Texture2D" uid="uid://cggdvtmjdxvmb" path="res://Assets/Sprites/Background/Menu/pur_cloud_3.png" id="3_keea5"]
+[ext_resource type="Script" path="res://Stages/PurpleLeft.gd" id="4_3bx2q"]
 [ext_resource type="Texture2D" uid="uid://ttqdk0w20vf3" path="res://Assets/Palettes/oil-6-8x.png" id="4_ekm6x"]
 [ext_resource type="Texture2D" uid="uid://gukdy6ko37b7" path="res://Assets/Sprites/Background/spr_sunset.png" id="5_0stsm"]
+[ext_resource type="Texture2D" uid="uid://d3tg6duxxsfqk" path="res://Assets/Sprites/Background/Menu/pur_cloud_2.png" id="5_1y55b"]
 [ext_resource type="Texture2D" uid="uid://cxissd0x572tb" path="res://Assets/Tilesets/Solids/spr_ibeam.png" id="5_eio2h"]
+[ext_resource type="Script" path="res://Stages/PurpleRight.gd" id="6_f1ar7"]
 [ext_resource type="Texture2D" uid="uid://cu06m33vasfgo" path="res://Assets/Sprites/UI/VineBorderBlue.png" id="8_sfc5x"]
 [ext_resource type="FontFile" uid="uid://cioc26ifxaesr" path="res://Assets/Fonts/yummy nickels.ttf" id="9_ci2yv"]
+[ext_resource type="Texture2D" uid="uid://cqu50x1b3btfc" path="res://Assets/Sprites/Background/Menu/dar_cloud_1.png" id="10_gncys"]
+[ext_resource type="Script" path="res://Stages/DarkLeft.gd" id="11_nlixa"]
+[ext_resource type="Texture2D" uid="uid://4gt14hcts2os" path="res://Assets/Sprites/Background/Menu/dar_cloud_2.png" id="12_6bswy"]
+[ext_resource type="Script" path="res://Stages/DarkRight.gd" id="13_18auu"]
+[ext_resource type="Script" path="res://Stages/HeartMask.gd" id="13_syi3t"]
+[ext_resource type="Texture2D" uid="uid://br665f3uqxtex" path="res://Assets/Sprites/Background/Menu/pur_cloud_1.png" id="18_1mwl3"]
+[ext_resource type="Script" path="res://Stages/PurpleDrifter.gd" id="19_uxaie"]
+[ext_resource type="AudioStream" uid="uid://iw8p6bl8t2d5" path="res://Assets/Audio/Music/Final/mus_main.mp3" id="21_81iiv"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8x3i6"]
 emission_shape = 3
@@ -114,9 +126,21 @@ script = ExtResource("2_5bf31")
 [node name="Stage" type="Node2D" parent="."]
 position = Vector2(-40, 0)
 
+[node name="PurpleLeft" type="Sprite2D" parent="Stage"]
+texture_filter = 1
+position = Vector2(74, -321)
+texture = ExtResource("3_keea5")
+script = ExtResource("4_3bx2q")
+
+[node name="PurpleRight" type="Sprite2D" parent="Stage"]
+texture_filter = 1
+position = Vector2(147, -302)
+texture = ExtResource("5_1y55b")
+script = ExtResource("6_f1ar7")
+
 [node name="obj_player" parent="Stage" instance=ExtResource("2_an52r")]
 texture_filter = 1
-position = Vector2(120, 56)
+position = Vector2(120, -472)
 
 [node name="Collision" type="TileMap" parent="Stage"]
 texture_filter = 1
@@ -175,6 +199,12 @@ texture_filter = 1
 position = Vector2(28, 56)
 texture = ExtResource("3_0ooal")
 
+[node name="HeartMask" type="ColorRect" parent="UI/Health"]
+offset_right = 40.0
+offset_bottom = 93.0
+color = Color(0.152941, 0.152941, 0.266667, 1)
+script = ExtResource("13_syi3t")
+
 [node name="StyleMeter" type="Node" parent="UI"]
 
 [node name="Label" type="Label" parent="UI/StyleMeter"]
@@ -186,3 +216,33 @@ offset_right = 401.0
 offset_bottom = 41.0
 text = "A"
 label_settings = SubResource("LabelSettings_xpn1k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -88.0
+offset_top = -536.0
+offset_right = 248.0
+offset_bottom = -344.0
+color = Color(0.152941, 0.152941, 0.266667, 1)
+
+[node name="DarkLeft" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(13, -294)
+texture = ExtResource("10_gncys")
+script = ExtResource("11_nlixa")
+
+[node name="DarkRight" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(134, -306)
+texture = ExtResource("12_6bswy")
+script = ExtResource("13_18auu")
+
+[node name="PurpleDrifter" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(116, -162)
+texture = ExtResource("18_1mwl3")
+script = ExtResource("19_uxaie")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_81iiv")
+volume_db = -8.0
+autoplay = true

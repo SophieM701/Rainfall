@@ -46,6 +46,11 @@ func _physics_process(delta):
 	var direction = Input.get_axis("Left", "Right")
 	velocity.x = direction * SPEED
 	
+	
+	# Terminal velocity matches the rain!
+	if( velocity.y >= 300 ):
+		velocity.y = 300
+	
 	# Crouch
 	#if( Input.is_action_pressed("Down") ):
 	#	if( crouch < 2 ):
